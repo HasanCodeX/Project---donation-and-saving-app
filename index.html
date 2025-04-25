@@ -1,0 +1,125 @@
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Donation & Savings Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+
+        h1 {
+            font-size: 1.8em;
+            color: #333;
+        }
+
+        label {
+            font-size: 1.1em;
+            color: #555;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            font-size: 1.4em;
+            color: #333;
+        }
+
+        p {
+            font-size: 1.1em;
+            color: #444;
+        }
+
+        .result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Income Donation & Savings Calculator</h1>
+
+        <label for="totalIncome">Enter Total Income (TK): </label>
+        <input type="number" id="totalIncome" placeholder="Enter your income" />
+        <button onclick="calculate()">Calculate</button>
+
+        <div class="result">
+            <h2>Results</h2>
+            <p id="donation">Donation (3%): </p>
+            <p id="savings">Savings (10%): </p>
+            <p id="totalSum">Total Sum (Donation + Savings): </p>
+        </div>
+    </div>
+
+    <script>
+        function calculate() {
+            // Get the input value
+            const totalIncome = parseFloat(document.getElementById("totalIncome").value);
+            
+            // Check if the input is valid
+            if (isNaN(totalIncome) || totalIncome <= 0) {
+                alert("Please enter a valid income.");
+                return;
+            }
+
+            // Calculate donation (3% of total income)
+            const donation = totalIncome * 0.03;
+            
+            // Calculate savings (10% of total income)
+            const savings = totalIncome * 0.10;
+
+            // Calculate the total sum (donation + savings)
+            const totalSum = donation + savings;
+
+            // Display the results
+            document.getElementById("donation").innerText = `Donation (3%): ${donation} TK`;
+            document.getElementById("savings").innerText = `Savings (10%): ${savings} TK`;
+            document.getElementById("totalSum").innerText = `Total Sum (Donation + Savings): ${totalSum} TK`;
+        }
+    </script>
+</body>
+</html>
